@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0f6bff" />
+  <title>Tushar's Physiotherapy</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-logo">T</div>
+        <div>
+          <h2>Tushar's</h2>
+          <span>Physiotherapy</span>
+        </div>
+      </div>
+
+      <nav>
+        <button class="nav-item active" data-page="dashboard">
+          <span>⌂</span> Dashboard
+        </button>
+
+        <button class="nav-item" data-page="patients">
+          <span>👤</span> Patients
+        </button>
+
+        <button class="nav-item" data-page="newPatient">
+          <span>＋</span> New Patient
+        </button>
+
+        <button class="nav-item" data-page="newVisit">
+          <span>🩺</span> New Visit
+        </button>
+
+        <button class="nav-item" data-page="payments">
+          <span>৳</span> Payments
+        </button>
+
+        <button class="nav-item" data-page="reports">
+          <span>▥</span> Reports
+        </button>
+
+        <button class="nav-item" data-page="settings">
+          <span>⚙</span> Settings
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="mini-user">
+          <div class="avatar">T</div>
+          <div>
+            <strong>Tasnim Alam Tushar</strong>
+            <small>Physiotherapist</small>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="overlay" id="overlay"></div>
+
+    <!-- MAIN -->
+    <main class="main">
+
+      <!-- TOPBAR -->
+      <header class="topbar">
+        <button class="menu-btn" id="menuBtn">☰</button>
+
+        <div class="top-title">
+          <h1 id="pageTitle">Dashboard</h1>
+          <p id="todayText"></p>
+        </div>
+
+        <button class="top-add" id="quickVisitBtn">＋ Visit</button>
+      </header>
+
+      <!-- CONTENT -->
+      <section class="content">
+
+        <!-- DASHBOARD -->
+        <section class="page active" id="dashboard">
+
+          <div class="welcome-card">
+            <div>
+              <span class="eyebrow">HOME PHYSIOTHERAPY MANAGEMENT</span>
+              <h2>Good day, Tushar 👋</h2>
+              <p>Manage your patients, visits and payments from one place.</p>
+            </div>
+
+            <div class="welcome-icon">🩺</div>
+          </div>
+
+          <div class="stats-grid">
+
+            <div class="stat-card">
+              <div class="stat-icon blue">👥</div>
+              <div>
+                <span>Total Patients</span>
+                <strong id="totalPatients">0</strong>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon green">🩺</div>
+              <div>
+                <span>Today's Visits</span>
+                <strong id="todayVisits">0</strong>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon purple">৳</div>
+              <div>
+                <span>This Month Income</span>
+                <strong id="monthIncome">৳0</strong>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon orange">!</div>
+              <div>
+                <span>Total Due</span>
+                <strong id="totalDue">৳0</strong>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="section-header">
+            <div>
+              <h3>Today's Visits</h3>
+              <p>Your latest home-visit activity</p>
+            </div>
+            <button class="text-btn" onclick="showPage('newVisit')">+ Add Visit</button>
+          </div>
+
+          <div id="todayVisitsList" class="visit-list"></div>
+
+          <div class="section-header">
+            <div>
+              <h3>Quick Actions</h3>
+              <p>Common tasks</p>
+            </div>
+          </div>
+
+          <div class="quick-grid">
+            <button class="quick-card" onclick="showPage('newPatient')">
+              <div>👤</div>
+              <strong>Add Patient</strong>
+              <span>Create a new patient</span>
+            </button>
+
+            <button class="quick-card" onclick="showPage('newVisit')">
+              <div>🩺</div>
+              <strong>Record Visit</strong>
+              <span>Add treatment session</span>
+            </button>
+
+            <button class="quick-card" onclick="showPage('patients')">
+              <div>🔎</div>
+              <strong>Find Patient</strong>
+              <span>Search patient records</span>
+            </button>
+
+            <button class="quick-card" onclick="showPage('reports')">
+              <div>📊</div>
+              <strong>View Reports</strong>
+              <span>Monthly financial report</span>
+            </button>
+          </div>
+
+        </section>
+
+
+        <!-- PATIENTS -->
+        <section class="page" id="patients">
+
+          <div class="page-heading">
+            <div>
+              <h2>Patients</h2>
+              <p>Manage your home physiotherapy patients.</p>
+            </div>
+
+            <button class="primary-btn" onclick="showPage('newPatient')">
+              ＋ New Patient
